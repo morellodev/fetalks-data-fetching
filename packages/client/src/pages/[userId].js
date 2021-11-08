@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 import UserDetails from "../components/UserDetails";
 import UserEditingModal from "../components/UserEditingModal";
