@@ -51,7 +51,7 @@ export default function UserPage() {
           isOpen={showEditingModal}
           size="xl"
           onClose={() => setShowEditingModal(false)}
-          onUserSave={handleUserSave}
+          onUserSaveAsync={handleUserSave}
         />
       )}
     </Box>

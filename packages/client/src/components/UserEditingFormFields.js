@@ -1,7 +1,7 @@
 import { FormControl, FormLabel, Input, VStack } from "@chakra-ui/react";
 import { useFormContext } from "react-hook-form";
 
-export default function UserEditingForm() {
+export default function UserEditingFormFields() {
   const { formState, register } = useFormContext();
 
   return (

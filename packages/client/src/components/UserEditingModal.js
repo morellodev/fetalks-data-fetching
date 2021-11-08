@@ -11,9 +11,13 @@ import {
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-import UserEditingForm from "./UserEditingForm";
+import UserEditingFormFields from "./UserEditingFormFields";
 
-export default function UserEditingModal({ user, onUserSave, ...modalProps }) {
+export default function UserEditingModal({
+  user,
+  onUserSaveAsync,
+  ...modalProps
+}) {
   const formMethods = useForm({ defaultValues: user });
   const [isSaving, setIsSaving] = useState(false);
 
@@ -21,7 +25,7 @@ export default function UserEditingModal({ user, onUserSave, ...modalProps }) {
     setIsSaving(true);
 
     try {
-      await onUserSave(values);
+      await onUserSaveAsync(values);
     } finally {
       setIsSaving(false);
     }
@@ -36,13 +40,13 @@ export default function UserEditingModal({ user, onUserSave, ...modalProps }) {
             <ModalHeader>Edit User</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <UserEditingForm />
+              <UserEditingFormFields />
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={modalProps.onClose}>
+              <Button variant="ghost" mr={3} onClick={modalProps.onClose}>
                 Close
               </Button>
-              <Button variant="ghost" type="submit" isLoading={isSaving}>
+              <Button colorScheme="blue" type="submit" isLoading={isSaving}>
                 Save
               </Button>
             </ModalFooter>
