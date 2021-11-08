@@ -1,26 +1,24 @@
 import { Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import UserDetails from "../components/UserDetails";
 import UserEditingModal from "../components/UserEditingModal";
+import { useQuery } from "../hooks/useQuery";
 import { jsonServerApi } from "../libs/jsonServerApi";
 
 export default function UserPage() {
   const router = useRouter();
-  const [user, setUser] = useState();
   const [showEditingModal, setShowEditingModal] = useState(false);
 
-  useEffect(() => {
-    const getUser = async () =>
-      jsonServerApi
-        .url(`/users/${router.query.userId}`)
-        .get()
-        .json()
-        .then(setUser);
+  const fetchUser = useCallback(
+    async () => jsonServerApi.url(`/users/${router.query.userId}`).get().json(),
+    [router.query.userId]
+  );
 
-    if (router.query.userId) getUser();
-  }, [router.query.userId]);
+  const { data: user } = useQuery(fetchUser, {
+    enabled: !!router.query.userId,
+  });
 
   async function handleUserSave(user) {
     try {
