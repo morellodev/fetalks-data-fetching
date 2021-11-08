@@ -1,0 +1,29 @@
+{
+  "name": "@fetalks-data-fetching/client",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Dennis Morello",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.6.12",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^4",
+    "next": "^12.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.19.1",
+    "react-icons": "^4.3.1",
+    "wretch": "^1.7.6"
+  },
+  "devDependencies": {
+    "eslint": "<8.0.0",
+    "eslint-config-next": "12.0.3"
+  }
+}

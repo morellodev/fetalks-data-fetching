@@ -1,0 +1,10 @@
+{
+  "name": "fetalks-data-fetching",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Dennis Morello",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}

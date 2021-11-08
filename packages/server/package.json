@@ -1,0 +1,14 @@
+{
+  "name": "@fetalks-data-fetching/server",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Dennis Morello",
+  "license": "MIT",
+  "scripts": {
+    "start": "json-server index.js"
+  },
+  "dependencies": {
+    "faker": "^5.5.3",
+    "json-server": "^0.17.0"
+  }
+}
