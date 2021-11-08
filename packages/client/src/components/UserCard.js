@@ -16,7 +16,7 @@ export default function UserCard({ user }) {
         pos="absolute"
         inset="0px"
         h="20"
-        bg="blue.600"
+        bgGradient="linear(to-b, blue.600, cyan.600)"
         borderTopLeftRadius="inherit"
         borderTopRightRadius="inherit"
       />

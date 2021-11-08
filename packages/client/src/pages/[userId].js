@@ -36,7 +36,12 @@ export default function UserPage() {
 
   return (
     <Box as="section" pt="20" pb="12" pos="relative" bg="gray.100" minH="100vh">
-      <Box pos="absolute" inset="0px" h="32" bg="blue.600" />
+      <Box
+        pos="absolute"
+        inset="0px"
+        h="32"
+        bgGradient="linear(to-b, blue.600, cyan.600)"
+      />
 
       {user && (
         <UserDetails
