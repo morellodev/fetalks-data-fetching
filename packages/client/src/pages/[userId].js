@@ -12,14 +12,14 @@ export default function UserPage() {
   const [showEditingModal, setShowEditingModal] = useState(false);
 
   useEffect(() => {
-    const getUser = async () =>
+    const fetchUser = async () =>
       jsonServerApi
         .url(`/users/${router.query.userId}`)
         .get()
         .json()
         .then(setUser);
 
-    if (router.query.userId) getUser();
+    if (router.query.userId) fetchUser();
   }, [router.query.userId]);
 
   async function handleUserSave(user) {
