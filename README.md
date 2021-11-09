@@ -1,6 +1,8 @@
 # Users CRUD App
 
-This is the demo app for the Front-End Talk about Data Fetching.
+This is the demo app for the Front-End Talk about Data Fetching:
+
+![Users App Screenshot](/docs/images/app-screenshot.png)
 
 ## Project Anatomy
 
