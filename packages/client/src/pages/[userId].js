@@ -22,11 +22,7 @@ export default function UserPage() {
 
   async function handleUserSave(user) {
     try {
-      await jsonServerApi
-        .url(`/users/${router.query.userId}`)
-        .put(user)
-        .json()
-        .then(setUser);
+      await jsonServerApi.url(`/users/${router.query.userId}`).put(user).json();
     } finally {
       setShowEditingModal(false);
     }
