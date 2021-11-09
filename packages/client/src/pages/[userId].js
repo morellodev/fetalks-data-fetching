@@ -18,15 +18,21 @@ export default function UserPage() {
     { enabled: !!router.query.userId }
   );
 
-  const userMutation = useMutation(
-    ({ user }) => jsonServerApi.url(`/users/${user.id}`).put(user).json(),
-    {
-      onSuccess: (data, { user }) => {
-        queryClient.setQueryData(["users", user.id], data);
-        setShowEditingModal(false);
-      },
-    }
+  const userMutation = useMutation(({ user }) =>
+    jsonServerApi.url(`/users/${user.id}`).put(user).json()
   );
+
+  async function handleUserSave(updatedUser) {
+    return userMutation.mutateAsync(
+      { user: updatedUser },
+      {
+        onSuccess: (data, { user }) => {
+          queryClient.setQueryData(["users", user.id], data);
+          setShowEditingModal(false);
+        },
+      }
+    );
+  }
 
   return (
     <Box as="section" pt="20" pb="12" pos="relative" bg="gray.100" minH="100vh">
@@ -50,7 +56,7 @@ export default function UserPage() {
           isOpen={showEditingModal}
           size="xl"
           onClose={() => setShowEditingModal(false)}
-          onUserSaveAsync={(user) => userMutation.mutateAsync({ user })}
+          onUserSaveAsync={handleUserSave}
         />
       )}
     </Box>
